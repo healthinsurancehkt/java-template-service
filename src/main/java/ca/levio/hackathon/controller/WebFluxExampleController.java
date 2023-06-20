@@ -1,7 +1,7 @@
 package ca.levio.hackathon.controller;
 
 import ca.levio.hackathon.model.Employee;
-import ca.levio.hackathon.service.WebFluxExampleService;
+import ca.levio.hackathon.service.WebFluxExampleMySqlServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 @Tag(name = "Employee Dashboard")
 public class WebFluxExampleController {
 
-    private final WebFluxExampleService webFluxExampleService;
+    private final WebFluxExampleMySqlServiceImpl webFluxExampleService;
 
     @PostMapping("/create")
     @Operation(summary = "Create new Employee")

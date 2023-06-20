@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 @Service
 @RequiredArgsConstructor
-public class WebFluxExampleServiceImpl implements WebFluxExampleService{
+public class WebFluxExampleMockServiceImpl implements WebFluxExampleService{
 
     private final WebFluxExampleMockrepository webFluxExampleMockrepository;
 
