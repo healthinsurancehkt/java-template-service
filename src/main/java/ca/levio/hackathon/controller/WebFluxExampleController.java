@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/v1/webflux-example")
 @Tag(name = "Employee Dashboard")
 public class WebFluxExampleController {
 
