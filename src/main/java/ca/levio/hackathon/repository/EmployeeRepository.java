@@ -5,5 +5,5 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WebFluxExampleRepository extends ReactiveCrudRepository<Employee, Long> {
+public interface EmployeeRepository extends ReactiveCrudRepository<Employee, Long> {
 }
