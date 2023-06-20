@@ -1,11 +1,10 @@
 package ca.levio.hackathon.repository;
 
-import ca.levio.hackathon.entity.Employee;
+import ca.levio.hackathon.model.Employee;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +33,6 @@ public class WebFluxExampleMockrepository {
     }
 
     public Flux<Employee> getAllEmployees(){
-        return Flux.fromIterable(listOfEmployees).delayElements(Duration.ofSeconds(2));
+        return Flux.fromIterable(listOfEmployees);
     }
 }

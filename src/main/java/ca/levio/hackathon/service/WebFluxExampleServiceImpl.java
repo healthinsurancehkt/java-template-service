@@ -1,6 +1,6 @@
 package ca.levio.hackathon.service;
 
-import ca.levio.hackathon.entity.Employee;
+import ca.levio.hackathon.model.Employee;
 import ca.levio.hackathon.repository.WebFluxExampleMockrepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

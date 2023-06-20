@@ -1,6 +1,6 @@
 package ca.levio.hackathon.service;
 
-import ca.levio.hackathon.entity.Employee;
+import ca.levio.hackathon.model.Employee;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

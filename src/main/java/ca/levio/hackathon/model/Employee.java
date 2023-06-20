@@ -1,4 +1,4 @@
-package ca.levio.hackathon.entity;
+package ca.levio.hackathon.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

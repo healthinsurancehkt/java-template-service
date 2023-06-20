@@ -1,6 +1,6 @@
 package ca.levio.hackathon.controller;
 
-import ca.levio.hackathon.entity.Employee;
+import ca.levio.hackathon.model.Employee;
 import ca.levio.hackathon.service.WebFluxExampleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/v1/webflux-example")
 public class WebFluxExampleController {
 
     private final WebFluxExampleService webFluxExampleService;
@@ -29,7 +30,6 @@ public class WebFluxExampleController {
     @GetMapping("/findAll")
     public ResponseEntity<Flux<Employee>> getAllEmployees(){
         Flux<Employee> e = webFluxExampleService.getAllEmployees();
-        e.subscribe(System.out::println);
         return new ResponseEntity<>(e, HttpStatus.OK);
     }
 }
