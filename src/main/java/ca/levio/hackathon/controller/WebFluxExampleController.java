@@ -3,6 +3,7 @@ package ca.levio.hackathon.controller;
 import ca.levio.hackathon.entity.Employee;
 import ca.levio.hackathon.service.WebFluxExampleService;
 import ca.levio.hackathon.service.WebFluxExampleServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +12,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@RequiredArgsConstructor
 public class WebFluxExampleController {
 
     private final WebFluxExampleService webFluxExampleService;
-
-    @Autowired
-    public WebFluxExampleController(WebFluxExampleServiceImpl webFluxExampleServiceImpl){
-        this.webFluxExampleService = webFluxExampleServiceImpl;
-    }
 
     @PostMapping("/create")
     public ResponseEntity<Mono<Employee>> createEmployee(@RequestBody Employee employee){
