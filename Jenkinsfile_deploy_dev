@@ -1,0 +1,71 @@
+podTemplate {
+    node(POD_LABEL) {
+        // gitVars will contain the following keys:
+        // GIT_BRANCH, GIT_COMMIT, GIT_LOCAL_BRANCH, GIT_PREVIOUS_COMMIT, GIT_PREVIOUS_SUCCESSFUL_COMMIT, GIT_URL
+        def gitVars = checkout scm
+        def branchName = gitVars.GIT_BRANCH
+
+        if(gitVars.GIT_PREVIOUS_COMMIT != gitVars.GIT_COMMIT) {
+
+            sh """
+            echo "Building to development" >> pipeline.output.txt
+            """
+
+
+            // send vars to containers' environment variables
+            gitVars.each { k, v -> env[k] = v }
+            env["DOCKER_TAG"] = "${dockerTag}"
+
+            sh """
+            echo "DOCKER_TAG=${DOCKER_TAG}" >> pipeline.output.txt
+            echo "DOCKER_TAG=${DOCKER_TAG}" >> ${DOCKER_TAG}.built-version
+            """
+
+            env["GCP_PROJECT"] = "steadfast-leaf-390318"
+            def gcrCredentials = "gcr:steadfast-leaf-390318"
+
+            sh """
+            echo "GCP_PROJECT=${GCP_PROJECT}" >> pipeline.output.txt
+            """
+
+            stage('GitOps Update') {
+                env['SERVICE_ENV_NAME'] = 'dev'
+                env['SERVICE_ENV_REGEX'] = 'dev-.*'
+                env['SERVICE_ENV_COMPATIBILITY_REGEX'] = 'stg-.*'
+                env['SERVICE_ENV_LATEST'] = 'latest'
+
+                sh """
+                echo "SERVICE_ENV_NAME=${SERVICE_ENV_NAME}" >> pipeline.output.txt
+                echo "SERVICE_ENV_REGEX=${SERVICE_ENV_REGEX}" >> pipeline.output.txt
+                echo "SERVICE_ENV_COMPATIBILITY_REGEX=${SERVICE_ENV_COMPATIBILITY_REGEX}" >> pipeline.output.txt
+                echo "SERVICE_ENV_LATEST=${SERVICE_ENV_LATEST}" >> pipeline.output.txt
+                """
+
+                dir('helm-charts') {
+                    git credentialsId: 'github-ssh-login',
+                        url: 'ssh://git@github.com:healthinsurancehkt/helm-charts.git'
+
+                    sh 'sed -i -r "s/${SERVICE_ENV_REGEX}/${DOCKER_TAG}/g" java-template-service/${SERVICE_ENV_NAME}/values.yaml'
+                    sh 'sed -i -r "s/${SERVICE_ENV_COMPATIBILITY_REGEX}/${DOCKER_TAG}/g" java-template-service/${SERVICE_ENV_NAME}/values.yaml'
+                    sh 'sed -i -r "s/${SERVICE_ENV_LATEST}/${DOCKER_TAG}/g" java-template-service/${SERVICE_ENV_NAME}/values.yaml'
+                    sh "git -c user.name='Jenkins Automation' -c user.email=jenkins_user@bluesona.co.uk commit -m '[java-template-service] [jenkins-automation] [dev] [manual-trigger] Changing image tag to ${DOCKER_TAG}' -a"
+                    withCredentials(
+                        [
+                            sshUserPrivateKey(credentialsId: 'github-ssh-login', keyFileVariable: 'SSH_KEY')
+                        ]
+                    ) {
+                       sh """
+                       export GIT_SSH_COMMAND="ssh -i $SSH_KEY"
+                       git push origin main:main --force
+                       """
+                    }
+                }
+            }
+
+            archiveArtifacts artifacts: '**/*kpi*.jar,**/java-template-service/dev/values.yaml,**/pipeline.output.txt,**/*.built-version',
+                             onlyIfSuccessful: true,
+                             fingerprint: true,
+                             allowEmptyArchive: true
+        }
+    }
+}
