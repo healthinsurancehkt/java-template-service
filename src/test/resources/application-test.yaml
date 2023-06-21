@@ -1,0 +1,3 @@
+spring:
+  r2dbc:
+    url: r2dbc:tc:mysql:///test?TC_IMAGE_TAG=latest
