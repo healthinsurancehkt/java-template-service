@@ -65,6 +65,16 @@
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>3.3.4</version>
+        </dependency>
 
         <dependency>
             <groupId>com.github.jasync-sql</groupId>
@@ -111,6 +121,27 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.swagger.codegen.v3</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <version>3.0.45</version>
+                <executions>
+                    <execution>
+                        <id>export-opennapi-to-html-doc</id>
+                        <goals>
+                            <goal>generate</goal>
+
+                        </goals>
+                        <phase>install</phase>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>
+                            <language>java</language>
+                            <output>${project.basedir}/docs</output>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
     </build>
 </project>
