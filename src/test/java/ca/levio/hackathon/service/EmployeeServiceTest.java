@@ -2,9 +2,7 @@ package ca.levio.hackathon.service;
 
 import ca.levio.hackathon.model.Employee;
 import ca.levio.hackathon.repository.EmployeeRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +27,6 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    @Disabled
     public void testSaveEmployee() {
         Employee employee = new Employee(null, "Juan");
         StepVerifier.create(employeeService.createEmployee(employee))
