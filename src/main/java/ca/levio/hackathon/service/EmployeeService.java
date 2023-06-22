@@ -7,6 +7,8 @@ import reactor.core.publisher.Mono;
 public interface EmployeeService {
 
     Mono<Employee> createEmployee(Employee employee);
-    Mono<Employee> getEmployeeById(Long idEmployee);
+    Mono<Employee> getEmployeeById(Long id);
+
+    Mono<Employee> getEmployeeByName(String name);
     Flux<Employee> getAllEmployees();
 }

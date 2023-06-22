@@ -22,6 +22,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public Mono<Employee> getEmployeeByName(String name) {
+        return employeeRepository.findByName(name);
+    }
+
+    @Override
     public Flux<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
