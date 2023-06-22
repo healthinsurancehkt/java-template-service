@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: API for JavaTemplateServiceApplication
+  description: Demo API
+  version: 1.0
+tags:
+- name: Employee Dashboard
+paths:
+  /v1/employee/create:
+    post:
+      tags:
+      - Employee Dashboard
+      summary: Create new Employee
+      operationId: createEmployee
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        "200":
+          $ref: '#/components/responses/200'
+  /v1/employee/findAll:
+    get:
+      tags:
+      - Employee Dashboard
+      summary: Fetch all Employee Data
+      operationId: getAllEmployees
+      responses:
+        "200":
+          description: Default response
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+  /v1/employee/findById/{id}:
+    get:
+      tags:
+      - Employee Dashboard
+      summary: Fetch Employee data by ID
+      operationId: getEmployeeById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/integer_int64'
+      responses:
+        "200":
+          $ref: '#/components/responses/200'
+components:
+  responses:
+    "200":
+      description: Default response
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Employee'
+  schemas:
+    integer_int64:
+      type: integer
+      format: int64
+    Employee:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/integer_int64'
+        name:
+          type: string

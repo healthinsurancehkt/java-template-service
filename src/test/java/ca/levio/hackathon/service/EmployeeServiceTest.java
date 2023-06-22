@@ -39,14 +39,13 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void testFindEmployeeById() {
+    public void testFindEmployeeByName() {
         Employee employee = new Employee(null, "Juan");
-        Employee employeeExpected = new Employee(1L, "Juan");
         StepVerifier.create(employeeService.createEmployee(employee))
                 .expectNextCount(1)
                 .verifyComplete();
-        StepVerifier.create(employeeService.getEmployeeById(1L))
-                .expectNext(employeeExpected)
+        StepVerifier.create(employeeService.getEmployeeByName("Juan").map(Employee::getName))
+                .expectNext("Juan")
                 .expectComplete()
                 .verify();
     }

@@ -19,3 +19,9 @@ The following guides illustrate how to use some features concretely:
 * [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
 * [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
 
+
+## The API
+[API DOC](./openapi/openapi.md)
+
+## Cloud Config
+[API DOC](CLOUD.md)
