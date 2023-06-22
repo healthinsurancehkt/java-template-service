@@ -1,0 +1,6 @@
+spring:
+  r2dbc:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: r2dbc:mysql://35.231.56.152:3306/insurance
+    username: produser
+    password: Hackathon2023prod!
