@@ -127,6 +127,7 @@ docker push us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-tem
 ## Install the application through helm
 ```
 # uninstall if necesary
+#helm -n api-dev uninstall java-template-service
 
 helm -n api-dev install -f ./helm/dev/values.yaml java-template-service ./helm/dev
 
