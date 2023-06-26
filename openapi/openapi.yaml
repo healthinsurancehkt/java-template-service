@@ -5,6 +5,7 @@ info:
   version: 1.0
 tags:
 - name: Employee Dashboard
+- name: Greet Controller
 paths:
   /v1/employee/create:
     post:
@@ -41,7 +42,7 @@ paths:
       tags:
       - Employee Dashboard
       summary: Fetch Employee data by ID
-      operationId: getEmployeeById
+      operationId: getEmployeeById0
       parameters:
       - name: id
         in: path
@@ -51,6 +52,19 @@ paths:
       responses:
         "200":
           $ref: '#/components/responses/200'
+  /v1/greet:
+    get:
+      tags:
+      - Greet Controller
+      summary: Get a greet
+      operationId: getEmployeeById1
+      responses:
+        "200":
+          description: Default response
+          content:
+            '*/*':
+              schema:
+                type: string
 components:
   responses:
     "200":

@@ -74,7 +74,7 @@ This operation does not require authentication
 
 ## Fetch Employee data by ID
 
-<a id="opIdgetEmployeeById"></a>
+<a id="opIdgetEmployeeById0"></a>
 
 > Code samples
 
@@ -95,6 +95,30 @@ This operation does not require authentication
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Default response|[Employee](#schemaemployee)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="api-for-javatemplateserviceapplication-greet-controller">Greet Controller</h1>
+
+## Get a greet
+
+<a id="opIdgetEmployeeById1"></a>
+
+> Code samples
+
+`GET /v1/greet`
+
+> Example responses
+
+> 200 Response
+
+<h3 id="get-a-greet-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Default response|string|
 
 <aside class="success">
 This operation does not require authentication

@@ -5,11 +5,12 @@ COPY src /src
 COPY pom.xml /
 COPY lombok.config /
 COPY credentials.json /
+COPY openapi /openapi
 RUN mkdir /.m2
 WORKDIR /.m2
 USER root
 RUN --mount=type=cache,target=/root/.m2 export GOOGLE_APPLICATION_CREDENTIALS=/credentials.json && \
-    mvn -f /pom.xml -DskipTests=true clean package
+    mvn -f /pom.xml -DskipTests=true -Dopenapi2doc.dir=/openapi/openapi2docs.sh clean package
 
 FROM openjdk:17-slim
 EXPOSE 8080

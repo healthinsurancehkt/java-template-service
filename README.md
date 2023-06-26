@@ -24,4 +24,4 @@ The following guides illustrate how to use some features concretely:
 [API DOC](./openapi/openapi.md)
 
 ## Cloud Config
-[API DOC](CLOUD.md)
+[Cloud DOC](CLOUD.md)

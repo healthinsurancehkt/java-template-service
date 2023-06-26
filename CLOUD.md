@@ -123,3 +123,12 @@ docker build -t "us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/jav
 ```
 docker push us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-template-service:dev-aaa
 ```
+
+## Install the application through helm
+```
+# uninstall if necesary
+
+helm -n api-dev install -f ./helm/dev/values.yaml java-template-service ./helm/dev
+
+kubectl patch svc java-template-service-helm -n api-dev -p '{"spec": {"type": "LoadBalancer"}}'
+```
