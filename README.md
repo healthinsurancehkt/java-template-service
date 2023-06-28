@@ -6,6 +6,24 @@ This is a template service, pleae do not add business code. Use this project as 
 
 *  Replace all occurrences of `java-template-service` with `your-service-name`. `tip:` `CTRL + SHIFT + R` (Windows and Linux) | `Command + SHIFT + R` (Mac) 
 
+## The API
+[API DOC](./openapi/openapi.md)
+
+* This is auto-generated as long as you run `mvn clean package -Popenapidoc` . Which will enable the specified profile and generate your documentation.
+* Don't forget to run this command, otherwise your documentation will be outdated (This will be an automated task under Jenkins Pipeline)
+
+## Cloud Config
+[CLOUD_CONFIG](CLOUD_CONFIG.md) 
+
+* Cloud Configuration DOC - DevOps only (No need to run this many times if you're not creating a new environment)
+* Use this if you're creating the cloud environment from scratch and you need the basic configuration for this service.
+
+## Cloud Deploy
+[CLOUD_DEPLOY](CLOUD_DEPLOY.md)
+
+* Cloud Deployment DOC - Basic steps to configure your local environment, build and deploy to a cloud environment)
+* Use this if you're a developer looking for creating a deployment for this service on the cloud and the cloud configuration already exists.
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
@@ -13,20 +31,8 @@ For further reference, please consider the following sections:
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.1.0/maven-plugin/reference/html/)
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.1.0/maven-plugin/reference/html/#build-image)
 * [Spring Reactive Web](https://docs.spring.io/spring-boot/docs/3.1.0/reference/htmlsingle/#web.reactive)
-* [Spring Data Reactive MongoDB](https://docs.spring.io/spring-boot/docs/3.1.0/reference/htmlsingle/#data.nosql.mongodb)
 
 ### Guides
 The following guides illustrate how to use some features concretely:
 
 * [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
-* [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
-
-
-## The API
-[API DOC](./openapi/openapi.md)
-
-## Cloud Config
-[Cloud Configuration DOC - DevOps only (No need to run this many times if you're not creating a new environment)](CLOUD_CONFIG.md)
-
-## Cloud Deploy
-[Cloud Deployment DOC - Basic steps to configure your local environment, build and deploy to a cloud environment)](CLOUD_DEPLOY.md)
