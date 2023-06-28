@@ -117,6 +117,9 @@ gcloud auth configure-docker us-east1-docker.pkg.dev
 
 ## Build docker image
 ```
+cp ~/.config/gcloud/legacy_credentials/youruser@email.com/adc.json ./credentials.json
+```
+```
 docker build -t "us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-template-service:dev-aaa" .
 ```
 
@@ -132,4 +135,6 @@ docker push us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-tem
 helm -n api-dev install -f ./helm/dev/values.yaml java-template-service ./helm/dev
 
 kubectl patch svc java-template-service-helm -n api-dev -p '{"spec": {"type": "LoadBalancer"}}'
+# if you need to specify port
+# kubectl -n api-dev patch svc java-template-service-helm -p '{"spec": {"ports": [{"port": 80,"targetPort": 8383,"name": "http"}],"type": "LoadBalancer"}}'
 ```
