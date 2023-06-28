@@ -4,7 +4,9 @@ This is a template service, pleae do not add business code. Use this project as 
 
 # Getting Started
 
-*  Replace all occurrences of `java-template-service` with `your-service-name`. `tip:` `CTRL + SHIFT + R` (Windows and Linux) | `Command + SHIFT + R` (Mac) 
+* Replace all occurrences of `java-template-service` with `your-service-name`. `tip:` `CTRL + SHIFT + R` (Windows and Linux) | `Command + SHIFT + R` (Mac) 
+* Follow the steps at  to [CLOUD_DEPLOY](CLOUD_DEPLOY.md) make the first deployment of your application.
+* << Only >> If you're wearing the devOps hat and want to create the cloud environment from scratch, follow  [CLOUD_CONFIG](CLOUD_CONFIG.md) !
 
 ## The API
 [API DOC](./openapi/openapi.md)
