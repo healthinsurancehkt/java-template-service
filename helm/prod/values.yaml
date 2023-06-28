@@ -12,8 +12,8 @@ image:
   tag: "prod-001"
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "java-template-service"
+fullnameOverride: "java-template-service"
 
 serviceAccount:
   # Specifies whether a service account should be created
