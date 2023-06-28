@@ -4,6 +4,8 @@ This is a template service, pleae do not add business code. Use this project as 
 
 # Getting Started
 
+*  Replace all occurrences of `java-template-service` with `your-service-name`. `tip:` `CTRL + SHIFT + R` (Windows and Linux) | `Command + SHIFT + R` (Mac) 
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
