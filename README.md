@@ -24,4 +24,7 @@ The following guides illustrate how to use some features concretely:
 [API DOC](./openapi/openapi.md)
 
 ## Cloud Config
-[Cloud DOC](CLOUD.md)
+[Cloud Configuration DOC - DevOps only (No need to run this many times if you're not creating a new environment)](CLOUD_CONFIG.md)
+
+## Cloud Deploy
+[Cloud Deployment DOC - Basic steps to configure your local environment, build and deploy to a cloud environment)](CLOUD_CONFIG.md)
