@@ -5,7 +5,7 @@ This is a template service, pleae do not add business code. Use this project as 
 # Getting Started
 
 * Replace all occurrences of `java-template-service` with `your-service-name`. `tip:` `CTRL + SHIFT + R` (Windows and Linux) | `Command + SHIFT + R` (Mac) 
-* Rename `JavaTemplateServiceApplication` to `{YourServiceName}Application`.
+* Rename `JavaTemplateServiceApplication` with `{YourServiceName}Application`.
 * Rename your package to something meaningful to your service. (if you're creating a fibonacci service, you can name `ca.levio.fibonacci`) Make sure this is also done for your `test` packages too.
 * Remove classes and tests you won't use
 * Follow the steps at  to [CLOUD_DEPLOY](CLOUD_DEPLOY.md) make the first deployment of your application.
