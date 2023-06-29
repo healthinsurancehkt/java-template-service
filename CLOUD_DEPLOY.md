@@ -37,6 +37,7 @@ gcloud auth configure-docker us-east1-docker.pkg.dev
 
 ## Build docker image
 ```
+# Windows users: C:\Users\{your user name}\AppData\Roaming\gcloud\legacy_credentials\{your email}\adc.json
 cp ~/.config/gcloud/legacy_credentials/your@email.com/adc.json ./credentials.json
 ```
 
