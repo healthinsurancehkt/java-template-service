@@ -37,11 +37,15 @@ gcloud auth configure-docker us-east1-docker.pkg.dev
 
 ## Build docker image
 ```
-docker build -t "us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-template-service:dev-aaa" .
+cp ~/.config/gcloud/legacy_credentials/your@email.com/adc.json ./credentials.json
 ```
 
 ```
-docker push us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-template-service:dev-aaa
+docker build -t "us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-template-service:dev-001" .
+```
+
+```
+docker push us-east1-docker.pkg.dev/steadfast-leaf-390318/insurance-now/java-template-service:dev-001
 ```
 
 ## Install the application through helm
